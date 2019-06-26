@@ -22,6 +22,9 @@ defaults write com.apple.finder ShowHardDrivesOnDesktop -bool true
 running "Set highlight color to green"
 defaults write NSGlobalDomain AppleHighlightColor -string "0.764700 0.976500 0.568600";ok
 
+running "Set macOS to dark mode"
+defaults write "Apple Global Domain" "AppleInterfaceStyle" "Dark"
+
 running "Disable the “Are you sure you want to open this application?” dialog"
 defaults write com.apple.LaunchServices LSQuarantine -bool false;ok
 
@@ -65,18 +68,15 @@ running "Show the ~/Library folder"
 chflags nohidden ~/Library;ok
 
 ####################
-bot "Configuring the dock..."
+#bot "Configuring the dock..."
 ####################
 
-running "Automatically hide and show the Dock"
-defaults write com.apple.dock autohide -bool true;ok
+#running "Automatically hide and show the Dock"
+#defaults write com.apple.dock autohide -bool true;ok
 
 ####################
 bot "Configuring Safari..."
 ####################
-
-running "Hide Safari’s bookmarks bar by default"
-defaults write com.apple.Safari ShowFavoritesBar -bool false;ok
 
 running "Enable the Develop menu and the Web Inspector in Safari"
 defaults write com.apple.Safari IncludeDevelopMenu -bool true
@@ -103,14 +103,18 @@ running "Sort Activity Monitor results by CPU usage"
 defaults write com.apple.ActivityMonitor SortColumn -string "CPUUsage"
 defaults write com.apple.ActivityMonitor SortDirection -int 0;ok
 
+###################
+bot "Running brew.sh..."
+###################
+
 source ./brew.sh
 
 ###################
 bot "Copying dotfiles..."
 ###################
 
-running "Moving .bash_profile"
-ln -sv ~/dotfiles/dotfiles/.bash_profile ~
+#running "Moving .bash_profile"
+#ln -sv ~/dotfiles/dotfiles/.bash_profile ~
 
 running "Moving .aliases"
 ln -sv ~/dotfiles/dotfiles/.aliases ~
@@ -118,8 +122,8 @@ ln -sv ~/dotfiles/dotfiles/.aliases ~
 running "Moving .gitconfig"
 ln -sv ~/dotfiles/dotfiles/.gitconfig ~
 
-running "Moving .profile"
-ln -sv ~/dotfiles/dotfiles/.profile ~
+#running "Moving .profile"
+#ln -sv ~/dotfiles/dotfiles/.profile ~
 
 ###################
 bot "Finished configuring your system!"
