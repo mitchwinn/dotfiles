@@ -27,7 +27,6 @@ brew install git
 brew install git-lfs
 brew install git-extras
 brew install httpie
-brew install mongodb
 brew install speedtest_cli
 
 # Install Cask
@@ -36,7 +35,6 @@ brew tap caskroom/versions
 
 # Core casks
 brew cask install --appdir="/Applications" visual-studio-code
-brew cask install --appdir="/Applications" atom
 
 # Misc casks
 brew cask install --appdir="/Applications" appcleaner
